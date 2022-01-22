@@ -6,7 +6,6 @@ var ExampleStyles$ExpenseTracker = require("./ExampleStyles.bs.js");
 var BlinkingGreeting$ExpenseTracker = require("./BlinkingGreeting/BlinkingGreeting.bs.js");
 var FetchedDogPictures$ExpenseTracker = require("./FetchedDogPictures/FetchedDogPictures.bs.js");
 var ReducerFromReactJSDocs$ExpenseTracker = require("./ReducerFromReactJSDocs/ReducerFromReactJSDocs.bs.js");
-var ReasonUsingJSUsingReason$ExpenseTracker = require("./ReasonUsingJSUsingReason/ReasonUsingJSUsingReason.bs.js");
 
 var style = document.createElement("style");
 
@@ -35,8 +34,6 @@ ReactDom.render(React.createElement(BlinkingGreeting$ExpenseTracker.make, {
 ReactDom.render(React.createElement(ReducerFromReactJSDocs$ExpenseTracker.make, {}), makeContainer("Reducer From ReactJS Docs"));
 
 ReactDom.render(React.createElement(FetchedDogPictures$ExpenseTracker.make, {}), makeContainer("Fetched Dog Pictures"));
-
-ReactDom.render(React.createElement(ReasonUsingJSUsingReason$ExpenseTracker.make, {}), makeContainer("Reason Using JS Using Reason"));
 
 exports.style = style;
 exports.makeContainer = makeContainer;

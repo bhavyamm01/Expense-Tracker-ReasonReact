@@ -45,7 +45,7 @@ ReactDOMRe.render(
   makeContainer("Fetched Dog Pictures"),
 );
 
-ReactDOMRe.render(
-  <ReasonUsingJSUsingReason />,
-  makeContainer("Reason Using JS Using Reason"),
-);
+// ReactDOMRe.render(
+//   <ReasonUsingJSUsingReason />,
+//   makeContainer("Reason Using JS Using Reason"),
+// );
