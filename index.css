@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@400;700&family=Lato:wght@400;700&family=Noto+Sans:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto-Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 4%;
+  margin-bottom: 5%;
+
+  overflow-y: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@media (max-width: 912px) {
+  .container {
+    margin: auto;
+    padding: 2%;
+  }
+}
+
+@media (max-width: 540px) {
+  .container {
+    padding: 2%;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    margin: 2%;
+  }
+}
+
+@media (max-width: 300px) {
+  .container {
+    padding: 3%;
+    font-size: 90%;
+  }
+}
