@@ -14,12 +14,6 @@ let make = () => {
       ~alignItems="center",
       ~justifyContent="center",
       ~background="rgb(227, 227, 227)",
-      // ~background=linear-gradient(
-      //   180deg,
-      //   rgba(227, 227, 227, 1) 0%,
-      //   rgba(228, 228, 228, 0.835) 29%,
-      //   rgba(182, 182, 182, 0.827) 100%
-      // ),
       ~borderRadius="10px",
       ~height="100%",
       ~boxShadow="-2px 3px 2px 0px rgba(168, 168, 168, 0.75)",
@@ -27,8 +21,9 @@ let make = () => {
     );
 
   let addTransaction = transaction => {
-    setTransactions(_
-      => Array.concat([[|transaction|], transactions])); // concat or append
+    let concatenatedArray = Array.concat([[|transaction|], transactions]);
+
+    setTransactions(_ => concatenatedArray); // concat or append
   };
 
   <div className="container" style>
@@ -37,6 +32,4 @@ let make = () => {
     <History transactions />
     <AddNewTransaction addTransaction />
   </div>;
-  // </GlobalContext>
-  // <GlobalContext>
 };

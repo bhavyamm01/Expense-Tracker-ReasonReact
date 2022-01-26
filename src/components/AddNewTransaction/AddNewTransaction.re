@@ -1,12 +1,7 @@
-open Types;
-
-type state = {
-  comment: string,
-  amount: string,
-};
+open Transactions;
 
 [@react.component]
-let make = (~addTransaction: Types.state => unit) => {
+let make = (~addTransaction: state => unit) => {
   let (comment, setComment) = React.useState(_ => "");
   let (amount, setAmount) = React.useState(_ => "0");
 
@@ -44,17 +39,17 @@ let make = (~addTransaction: Types.state => unit) => {
       (),
     );
 
+  let onSubmit = evt => {
+    ReactEvent.Form.preventDefault(evt);
+    addTransaction({comment, amount: int_of_string(amount)});
+    setComment(_ => "");
+    setAmount(_ => "0");
+  };
+
   <div className="add_new_transaction">
     <h3> {React.string("Add new transaction")} </h3>
     <hr />
-    <form
-      onSubmit={evt => {
-        ReactEvent.Form.preventDefault(evt);
-        Js.log({comment, amount});
-        addTransaction({comment, amount: int_of_string(amount)});
-        setComment(_ => "");
-        setAmount(_ => "0");
-      }}>
+    <form onSubmit>
       <div className="form-control">
         <label style=labelStyle>
           <strong> {React.string("Comment")} </strong>
@@ -66,7 +61,6 @@ let make = (~addTransaction: Types.state => unit) => {
           value=comment
           onChange={event => {
             let value = ReactEvent.Form.target(event)##value;
-            Js.log2(value, "comment value");
             setComment(_ => value);
           }}
           required=true
@@ -89,8 +83,6 @@ let make = (~addTransaction: Types.state => unit) => {
           onChange={event =>
             if (ReactEvent.Form.target(event)##value) {
               let value = ReactEvent.Form.target(event)##value;
-              Js.log2(value, "value");
-              // setAmount(_ => int_of_string(value));
               setAmount(_ => value);
             }
           }

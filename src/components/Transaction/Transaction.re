@@ -1,15 +1,7 @@
-open Types;
+open Transactions;
 
 [@react.component]
 let make = (~transaction: state) => {
-  let convert = num => {
-    let int_to_string = string_of_int(num);
-    let x = int_to_string |> Js.String.split("-");
-    let string_to_int = int_of_string(x[1]);
-
-    string_to_int;
-  };
-
   let transactionLiStyle =
     ReactDOM.Style.make(
       ~backgroundColor="white",
@@ -54,7 +46,7 @@ let make = (~transaction: state) => {
             {React.string("Rs")}
             {React.string(" ")}
             {transaction.amount < 0
-               ? React.int(convert(transaction.amount))
+               ? React.int(abs(transaction.amount))
                : React.int(transaction.amount)}
           </div>
         </li>
@@ -74,7 +66,7 @@ let make = (~transaction: state) => {
             {React.string("Rs")}
             {React.string(" ")}
             {transaction.amount < 0
-               ? React.int(convert(transaction.amount))
+               ? React.int(abs(transaction.amount))
                : React.int(transaction.amount)}
           </div>
         </li>

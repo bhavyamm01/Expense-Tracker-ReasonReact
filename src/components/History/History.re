@@ -1,5 +1,5 @@
 [@react.component]
-let make = (~transactions: Types.t) => {
+let make = (~transactions: Transactions.t) => {
   let historyUlStyle =
     ReactDOM.Style.make(
       ~listStyle="none",
