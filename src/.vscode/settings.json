@@ -9,7 +9,7 @@
     "reason_language_server.format_width": 100,
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "jaredly.reason-vscode",
-    "[scss]": {
+    "[css]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
   }
