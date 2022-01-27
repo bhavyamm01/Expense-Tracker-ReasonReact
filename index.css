@@ -7,15 +7,8 @@ body {
   font-family: "Noto-Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin-top: 4%;
-  margin-bottom: 5%;
-
+  margin: 4% 0 5% 0;
   overflow-y: hidden;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 @media (max-width: 912px) {

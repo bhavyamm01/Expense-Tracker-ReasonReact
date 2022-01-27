@@ -30,45 +30,20 @@ let make = (~transaction: state) => {
       (),
     );
 
-  transaction.amount > 0
-    ? <div style=greenFinalStyle>
-        <li style=transactionLiStyle>
-          {React.string(transaction.comment)}
-          {React.string(" ")}
-          <div>
-            {transaction.amount > 0
-               ? {
-                 React.string("+");
-               }
-               : {
-                 React.string("-");
-               }}
-            {React.string("Rs")}
-            {React.string(" ")}
-            {transaction.amount < 0
-               ? React.int(abs(transaction.amount))
-               : React.int(transaction.amount)}
-          </div>
-        </li>
-      </div>
-    : <div style=redFinalStyle>
-        <li style=transactionLiStyle>
-          {React.string(transaction.comment)}
-          {React.string(" ")}
-          <div>
-            {transaction.amount > 0
-               ? {
-                 React.string("+");
-               }
-               : {
-                 React.string("-");
-               }}
-            {React.string("Rs")}
-            {React.string(" ")}
-            {transaction.amount < 0
-               ? React.int(abs(transaction.amount))
-               : React.int(transaction.amount)}
-          </div>
-        </li>
-      </div>;
+  let signHelper = amount => {
+    amount > 0 ? React.string("+") : React.string("-");
+  };
+
+  let renderTransaction = () => {
+    <li style=transactionLiStyle>
+      {React.string(transaction.comment)}
+      {React.string(" ")}
+      <DisplayAmount transaction=transaction.amount />
+    </li>;
+  };
+
+  let transactionStyle =
+    transaction.amount > 0 ? greenFinalStyle : redFinalStyle;
+
+  <div style=transactionStyle> {renderTransaction()} </div>;
 };

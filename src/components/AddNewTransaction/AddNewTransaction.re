@@ -10,12 +10,12 @@ let make = (~addTransaction: state => unit) => {
       ~display="block",
       ~margin="2% 0",
       ~fontSize="15px",
+      // ~padding="2% 0",
       (),
     );
 
   let inputStyle =
     ReactDOM.Style.make(
-      ~display="block",
       ~width="100%",
       ~padding="2%",
       ~borderRadius="2%",
