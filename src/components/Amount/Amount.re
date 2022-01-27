@@ -1,7 +1,7 @@
 open Transactions;
 
 [@react.component]
-let make = (~transactions: t) => {
+let make = (~transactions: array(t)) => {
   let rupee = React.string({js|₹|js});
 
   let expenseIncomeStyle =

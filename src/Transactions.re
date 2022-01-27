@@ -1,6 +1,8 @@
-type state = {
+type t = {
   comment: string,
   amount: int,
 };
 
-type t = array(state);
+// type transactions = array(t);
+
+// type t = array(state);

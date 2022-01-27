@@ -1,7 +1,7 @@
 open Transactions;
 
 [@react.component]
-let make = (~transaction: state) => {
+let make = (~transaction: t) => {
   let transactionLiStyle =
     ReactDOM.Style.make(
       ~backgroundColor="white",
@@ -38,7 +38,7 @@ let make = (~transaction: state) => {
     <li style=transactionLiStyle>
       {React.string(transaction.comment)}
       {React.string(" ")}
-      <DisplayAmount transaction=transaction.amount />
+      <DisplayAmount transaction={transaction.amount} />
     </li>;
   };
 
