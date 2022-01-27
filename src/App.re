@@ -4,7 +4,7 @@ open Dom_storage2;
 
 [@react.component]
 let make = () => {
-  let retrievedItem = localStorage->getItem("key");
+  let retrievedItem = localStorage->getItem("transactions");
 
   let parsingFunction = item => {
     switch (item) {
@@ -20,13 +20,14 @@ let make = () => {
     };
   };
 
-  let execute = (json: Js.Json.t): array(Transactions.t) => {
-    Json.Decode.(json |> array(convertor));
-  };
+  let execute = (json: Js.Json.t): array(Transactions.t) =>
+    if (json === Js.Json.string("")) {
+      [||];
+    } else {
+      Json.Decode.(json |> array(convertor));
+    };
 
   let decodedData = retrievedItem |> parsingFunction |> execute;
-
-  Js.log2(decodedData, "decodeData")
 
   let (transactions, setTransactions) =
     React.useState(_ => decodedData != [||] ? decodedData : [||]);
@@ -35,15 +36,10 @@ let make = () => {
     setTransactions(_ => Array.concat([[|transaction|], transactions])); // concat or append
 
     let stringifiedData =
-      Js.Json.stringifyAny(
-        Array.concat([
-          [|transaction|],
-          transactions
-        ]),
-      );
+      Js.Json.stringifyAny(Array.concat([[|transaction|], transactions]));
 
     switch (stringifiedData) {
-    | Some(result) => localStorage->setItem("key", result)
+    | Some(result) => localStorage->setItem("transactions", result)
     | None => ()
     };
   };
