@@ -1,0 +1,24 @@
+.expense-income-div {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: -2px 3px 3px 0px rgba(168, 168, 168, 0.75);
+    border-radius: 4px;
+}
+
+.income-div {
+    flex: 1;
+    text-align: center;
+}
+
+.income-h5 {
+    color: #00FF00;
+    font-size: 20px;
+}
+
+.expense-h5 {
+    color: #FF0000;
+    font-size: 20px;
+}
+
+

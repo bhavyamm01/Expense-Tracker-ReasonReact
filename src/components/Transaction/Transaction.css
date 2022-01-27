@@ -1,0 +1,21 @@
+.transaction-li {
+  background-color: #fff;
+  padding: 2%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  margin-bottom: 3%;
+}
+
+.green {
+  width: 100%;
+  box-shadow: -2px 3px 3px 0px rgba(168, 168, 168, 0.75);
+  border-right: 4px solid #00ff00;
+}
+
+.red {
+  width: 100%;
+  box-shadow: -2px 3px 3px 0px rgba(168, 168, 168, 0.75);
+  border-right: 4px solid #ff0000;
+}

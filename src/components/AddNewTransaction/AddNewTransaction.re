@@ -1,43 +1,11 @@
 open Transactions;
 
+[%bs.raw {|require('./AddNewTransaction.css')|}];
+
 [@react.component]
-let make = (~addTransaction: state => unit) => {
+let make = (~addTransaction: t => unit) => {
   let (comment, setComment) = React.useState(_ => "");
   let (amount, setAmount) = React.useState(_ => "0");
-
-  let labelStyle =
-    ReactDOM.Style.make(
-      ~display="block",
-      ~margin="2% 0",
-      ~fontSize="15px",
-      // ~padding="2% 0",
-      (),
-    );
-
-  let inputStyle =
-    ReactDOM.Style.make(
-      ~width="100%",
-      ~padding="2%",
-      ~borderRadius="2%",
-      ~fontSize="14px",
-      ~border="1px solid #dedede",
-      (),
-    );
-
-  let addTransactionStyle =
-    ReactDOM.Style.make(
-      ~display="block",
-      ~width="100%",
-      ~marginTop="4%",
-      ~padding="2%",
-      ~border="none",
-      ~backgroundColor="blueviolet",
-      ~color="white",
-      ~borderRadius="2%",
-      ~cursor="pointer",
-      ~fontSize="16px",
-      (),
-    );
 
   let onSubmit = evt => {
     ReactEvent.Form.preventDefault(evt);
@@ -51,7 +19,7 @@ let make = (~addTransaction: state => unit) => {
     <hr />
     <form onSubmit>
       <div className="form-control">
-        <label style=labelStyle>
+        <label className="formLabel">
           <strong> {React.string("Comment")} </strong>
         </label>
         <input
@@ -64,11 +32,11 @@ let make = (~addTransaction: state => unit) => {
             setComment(_ => value);
           }}
           required=true
-          style=inputStyle
+          className="formInput"
         />
       </div>
       <div className="form-control">
-        <label style=labelStyle>
+        <label className="formLabel">
           <strong>
             {React.string("Amount")}
             <br />
@@ -86,10 +54,10 @@ let make = (~addTransaction: state => unit) => {
               setAmount(_ => value);
             }
           }
-          style=inputStyle
+          className="formInput"
         />
       </div>
-      <button type_="submit" style=addTransactionStyle>
+      <button type_="submit" className="addTransactionButton">
         {React.string("Add Transaction")}
       </button>
     </form>

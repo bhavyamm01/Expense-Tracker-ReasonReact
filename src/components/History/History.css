@@ -1,0 +1,7 @@
+.history-ul {
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    max-height: 110px;
+    overflow-y: auto;
+}

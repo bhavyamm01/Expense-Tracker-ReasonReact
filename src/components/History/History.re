@@ -1,19 +1,11 @@
+[%bs.raw {|require('./History.css')|}];
+
 [@react.component]
 let make = (~transactions: array(Transactions.t)) => {
-  let historyUlStyle =
-    ReactDOM.Style.make(
-      ~listStyle="none",
-      ~alignItems="center",
-      ~justifyContent="center",
-      ~maxHeight="110px",
-      ~overflowY="auto",
-      (),
-    );
-
   <div className="history" id="history">
     <h3> {React.string("History")} </h3>
     <hr />
-    <ul style=historyUlStyle>
+    <ul className="history-ul">
       {transactions
        ->Belt.Array.map(transaction => <Transaction transaction />)
        ->React.array}

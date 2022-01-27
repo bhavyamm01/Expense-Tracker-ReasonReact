@@ -1,24 +1,9 @@
 open Transactions;
+[%bs.raw {|require('./Amount.css')|}];
 
 [@react.component]
 let make = (~transactions: array(t)) => {
   let rupee = React.string({js|₹|js});
-
-  let expenseIncomeStyle =
-    ReactDOM.Style.make(
-      ~backgroundColor="white",
-      ~display="flex",
-      ~justifyContent="space-between",
-      ~boxShadow="-2px 3px 3px 0px rgba(168, 168, 168, 0.75)",
-      ~borderRadius="4px",
-      (),
-    );
-  let incomeStyle = ReactDOM.Style.make(~flex="1", ~textAlign="center", ());
-  let incomeH5Style =
-    ReactDOM.Style.make(~color="green", ~fontSize="20px", ());
-  let expenseStyle = ReactDOM.Style.make(~flex="1", ~textAlign="center", ());
-  let expenseH5Style =
-    ReactDOM.Style.make(~color="red", ~fontSize="20px", ());
 
   let amountArray = Belt.Array.map(transactions, t => t.amount);
   let incomeArray = Belt.Array.keep(amountArray, i => i > 0);
@@ -38,14 +23,14 @@ let make = (~transactions: array(t)) => {
       <h3> {React.string("Your balance")} </h3>
       <h1> <DisplayAmount transaction=total /> </h1>
     </div>
-    <div style=expenseIncomeStyle>
-      <div style=incomeStyle>
+    <div className="expense-income-div">
+      <div className="income-div">
         <h3> {React.string("Income")} </h3>
-        <h5 style=incomeH5Style> rupee {React.int(income)} </h5>
+        <h5 className="income-h5"> rupee {React.int(income)} </h5>
       </div>
-      <div style=expenseStyle>
+      <div className="income-div">
         <h3> {React.string("Expense")} </h3>
-        <h5 style=expenseH5Style> rupee {React.int(expense)} </h5>
+        <h5 className="expense-h5"> rupee {React.int(expense)} </h5>
       </div>
     </div>
   </div>;

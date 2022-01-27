@@ -1,15 +1,14 @@
 [%bs.raw {|require('./App.css')|}];
+
 [@react.component]
 let make = () => {
   let (transactions, setTransactions) = React.useState(_ => [||]);
 
   Js.log2(transactions, "transactions");
 
-
   let addTransaction = transaction => {
-    let concatenatedArray = Array.concat([[|transaction|], transactions]);
-
-    setTransactions(_ => concatenatedArray); // concat or append
+    setTransactions(_
+      => Array.concat([[|transaction|], transactions])); // concat or append
   };
 
   <div className="container">
