@@ -1,7 +1,7 @@
 [%bs.raw {|require('./History.css')|}];
 
 [@react.component]
-let make = (~transactions: array(Transactions.t)) => {
+let make = (~transactions: array(Transaction.t)) => {
   <div className="history">
     <h3> {React.string("History")} </h3>
     <hr />
