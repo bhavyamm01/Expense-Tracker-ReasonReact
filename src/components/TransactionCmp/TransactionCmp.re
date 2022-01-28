@@ -1,9 +1,7 @@
-open Transactions;
-
-[%bs.raw {|require('./Transaction.css')|}];
+[%bs.raw {|require('./TransactionCmp.css')|}];
 
 [@react.component]
-let make = (~transaction: t) => {
+let make = (~transaction: Transaction.t) => {
   let renderTransaction = () => {
     <li className="transaction-li">
       {React.string(transaction.comment ++ " ")}
