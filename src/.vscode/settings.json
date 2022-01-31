@@ -1,0 +1,15 @@
+{
+    "[reason]": {
+      "editor.defaultFormatter": "jaredly.reason-vscode"
+    },
+    "files.insertFinalNewline": true,
+    "editor.tabSize": 2,
+    "editor.occurrencesHighlight": false,
+    "editor.selectionHighlight": false,
+    "reason_language_server.format_width": 100,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "jaredly.reason-vscode",
+    "[css]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+  }

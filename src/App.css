@@ -1,0 +1,35 @@
+.container {
+  max-width: 500px;
+  padding: 1%;
+  margin: -3% auto 0 auto;
+  background: #e3e3e3;
+  border-radius: 10px;
+  height: 100%;
+  box-shadow: -2px 3px 2px 0px rgba(168, 168, 168, 0.75);
+}
+
+@media (max-width: 912px) {
+  .container {
+    margin: auto;
+    padding: 2%;
+  }
+}
+
+@media (max-width: 540px) {
+  .container {
+    padding: 2%;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    margin: 2%;
+  }
+}
+
+@media (max-width: 300px) {
+  .container {
+    padding: 3%;
+    font-size: 90%;
+  }
+}
