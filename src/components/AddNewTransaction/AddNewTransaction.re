@@ -1,9 +1,7 @@
-open Transactions;
-
 [%bs.raw {|require('./AddNewTransaction.css')|}];
 
 [@react.component]
-let make = (~addTransaction: t => unit) => {
+let make = (~addTransaction: Transaction.t => unit) => {
   let (comment, setComment) = React.useState(_ => "");
   let (amount, setAmount) = React.useState(_ => "0");
 
@@ -14,12 +12,12 @@ let make = (~addTransaction: t => unit) => {
     setAmount(_ => "0");
   };
 
-  <div className="add_new_transaction">
+  <div>
     <h3> {React.string("Add new transaction")} </h3>
     <hr />
     <form onSubmit>
       <div className="form-control">
-        <label className="formLabel">
+        <label className="form-label">
           <strong> {React.string("Comment")} </strong>
         </label>
         <input
@@ -32,11 +30,11 @@ let make = (~addTransaction: t => unit) => {
             setComment(_ => value);
           }}
           required=true
-          className="formInput"
+          className="form-input"
         />
       </div>
       <div className="form-control">
-        <label className="formLabel">
+        <label className="form-label">
           <strong>
             {React.string("Amount")}
             <br />
@@ -54,10 +52,10 @@ let make = (~addTransaction: t => unit) => {
               setAmount(_ => value);
             }
           }
-          className="formInput"
+          className="form-input"
         />
       </div>
-      <button type_="submit" className="addTransactionButton">
+      <button type_="submit" className="add-transaction-button">
         {React.string("Add Transaction")}
       </button>
     </form>

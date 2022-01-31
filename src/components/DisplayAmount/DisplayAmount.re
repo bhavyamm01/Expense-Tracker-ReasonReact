@@ -1,19 +1,12 @@
-let signHelper = amount =>
-  if (amount === 0) {
-    React.null;
-  } else if (amount > 0) {
-    React.string("+");
-  } else {
-    React.string("-");
-  };
+let signHelper = amount => {
+  amount >= 0 ? React.string("+") : React.string("-");
+};
 
 [@react.component]
 let make = (~transaction: int) => {
-  let rupee = React.string({js|₹|js});
-
   <div>
     {signHelper(transaction)}
-    rupee
+    {React.string({js|₹|js})}
     {React.int(abs(transaction))}
   </div>;
 };
