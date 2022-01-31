@@ -5,7 +5,7 @@ let make = (~transaction: Transaction.t) => {
   let renderTransaction = () => {
     <li className="transaction-li">
       {React.string(transaction.comment ++ " ")}
-      <DisplayAmount transaction={transaction.amount} />
+      <DisplayAmount amount={transaction.amount} />
     </li>;
   };
 
